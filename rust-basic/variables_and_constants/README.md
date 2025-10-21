@@ -1,4 +1,4 @@
-# variables_and_constants
+# 変数と定数 (variables_and_constants)
 
 ## 概要
 
