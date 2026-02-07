@@ -2,5 +2,9 @@
 members = [
     "common",
     "rust-basic/*",
+    "rust-libraries/*",
 ]
 resolver = "2"
+
+[workspace.dependencies]
+common = { path = "common" }
