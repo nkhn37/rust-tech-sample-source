@@ -98,6 +98,9 @@ dependencies = [
 [[package]]
 name = "string_str"
 version = "0.1.0"
+dependencies = [
+ "common",
+]
 
 [[package]]
 name = "struct_basic"
