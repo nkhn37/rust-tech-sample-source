@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 // メッセージを表す列挙型
 enum Message {
     Quit,
@@ -24,6 +25,11 @@ fn main() {
     let message3 = Message::Move(5, 10);
     echo_message(&message3);
 
-    let message4 = Message::ChangeColor{ r: 255, g: 255, b: 0, a: 0.5 };
+    let message4 = Message::ChangeColor {
+        r: 255,
+        g: 255,
+        b: 0,
+        a: 0.5,
+    };
     echo_message(&message4);
 }

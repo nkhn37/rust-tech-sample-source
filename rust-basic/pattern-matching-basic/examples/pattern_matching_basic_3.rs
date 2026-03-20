@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 // メッセージを表す列挙型
 enum Message {
     Quit,
@@ -11,7 +12,7 @@ fn quit_only(message: &Message) {
     // 構造を含めたパターンマッチ
     match message {
         Message::Quit => println!("終了します。"),
-        _ => (),  // Quit以外は何もしない
+        _ => (), // Quit以外は何もしない
     }
 }
 
@@ -25,6 +26,11 @@ fn main() {
     let message3 = Message::Move(5, 10);
     quit_only(&message3);
 
-    let message4 = Message::ChangeColor{ r: 255, g: 255, b: 0, a: 0.5 };
+    let message4 = Message::ChangeColor {
+        r: 255,
+        g: 255,
+        b: 0,
+        a: 0.5,
+    };
     quit_only(&message4);
 }
