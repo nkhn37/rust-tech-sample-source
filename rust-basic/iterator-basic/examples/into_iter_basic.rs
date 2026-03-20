@@ -1,5 +1,3 @@
-use std::arch::x86_64;
-
 fn main() {
     let v1 = vec![1, 2, 3];
 
