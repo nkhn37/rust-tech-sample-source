@@ -1,20 +1,33 @@
 use std::fs;
 use std::path::Path;
 
-pub fn list_examples() {
+pub fn list_examples(manifest_dir: &str, package_name: &str) {
     println!("例を実行するには、以下のコマンドを実行してください。\n");
 
-    // examplesディレクトリのパスを設定
-    let examples_dir = Path::new("examples");
+    // Cargo.toml があるディレクトリを基準に examples を解決する
+    let examples_dir = Path::new(manifest_dir).join("examples");
 
     // ディレクトリの存在確認
     if !examples_dir.exists() {
-        eprintln!("examples ディレクトリが存在しません。");
+        eprintln!(
+            "examples ディレクトリが存在しません: {}",
+            examples_dir.display()
+        );
         return;
     }
 
+    // 実行時のカレントディレクトリがプロジェクトフォルダかどうかで表示コマンドを切り替える
+    let current_dir = std::env::current_dir().unwrap_or_default();
+    let prefix = if current_dir == Path::new(manifest_dir) {
+        // プロジェクトフォルダから実行 → -p 不要
+        String::new()
+    } else {
+        // ワークスペースルートなど別の場所から実行 → -p 付き
+        format!("-p {} ", package_name)
+    };
+
     // examples ディレクトリのデータを取得
-    match fs::read_dir(examples_dir) {
+    match fs::read_dir(&examples_dir) {
         Ok(entries) => {
             // .rs ファイルのみを抽出
             let mut example_files: Vec<String> = entries
@@ -35,7 +48,7 @@ pub fn list_examples() {
             // 実行用コマンドを表示
             for file_name in example_files {
                 let example_name = file_name.trim_end_matches(".rs");
-                println!("cargo run --example {}", example_name);
+                println!("cargo run {}--example {}", prefix, example_name);
             }
         }
         Err(e) => {

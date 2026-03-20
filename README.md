@@ -9,20 +9,52 @@
 
 ## 🚀 プログラムの使い方
 
-### 1. プロジェクトフォルダへ移動
+`cargo run` を実行すると、各プロジェクトの `examples` フォルダ内のサンプルコードの実行方法が表示されます。  
+**リポジトリルートから実行する方法**と**各プロジェクトフォルダから実行する方法**のどちらにも対応しています。
 
-実行したいトピックのフォルダへ移動します。
+---
 
-（例：`rust-basic/variables_and_constants` フォルダのプログラムを試す場合）
+### ▶ リポジトリルートから実行する場合
+
+#### 1. `main.rs` を実行する
+
+`-p <パッケージ名>` を指定して `cargo run` を実行します。
+
+（例：`variables-and-constants` パッケージのサンプル一覧を表示する場合）
 
 ```
-cd rust-basic/variables_and_constants
+cargo run -p variables-and-constants
 ```
 
-### 2. `main.rs` を実行する
+出力例：
 
-各トピックのプロジェクトフォルダで`cargo run` により `main.rs` を実行します。  
-このプログラムは、各プロジェクトフォルダの `examples` フォルダ内のサンプルコードの実行方法を表示します。
+```
+cargo run -p variables-and-constants --example constant
+cargo run -p variables-and-constants --example immutable
+cargo run -p variables-and-constants --example mutable
+cargo run -p variables-and-constants --example shadowing
+cargo run -p variables-and-constants --example shadowing_other_scope
+```
+
+#### 2. 表示されたコマンドを実行する
+
+表示されたコマンドをそのまま実行すると、サンプルプログラムを試すことができます。
+
+```
+cargo run -p variables-and-constants --example constant
+```
+
+---
+
+### ▶ 各プロジェクトフォルダから実行する場合
+
+#### 1. プロジェクトフォルダへ移動する
+
+```
+cd rust-basic/variables-and-constants
+```
+
+#### 2. `main.rs` を実行する
 
 ```
 cargo run
@@ -38,9 +70,7 @@ cargo run --example shadowing
 cargo run --example shadowing_other_scope
 ```
 
-### 3. 表示されたコマンドを実行する
-
-表示されたコマンドを実行すると、ブログ記事内で紹介しているサンプルプログラムを、そのまま試すことができます。
+#### 3. 表示されたコマンドを実行する
 
 ```
 cargo run --example constant
@@ -49,14 +79,18 @@ cargo run --example constant
 ## 📁 ディレクトリ構成概要
 
 ```
-rust-tech-sample-source/
-├─ Cargo.toml             # ワークスペース定義
-├─ common/                # 共通ライブラリクレート
-├─ rust-basic/
-│  ├─ function_basic/     # 関数の基本
-│  ├─ struct_basic/       # 構造体の基本
-│  ├─ ownership_borrowing_basic/  # 所有権と借用
-│  └─ ...                 # 各トピックのフォルダ
+rust-tech-sample-source/          # プロジェクトルート
+├─ Cargo.toml                       # ワークスペース定義
+├─ common/                          # 共通ライブラリクレート
+├─ rust-basic/                      # Rust 入門
+│  ├─ function-basic/                 # 関数の基本
+│  ├─ struct-basic/                   # 構造体の基本
+│  ├─ ownership-borrowing-basic/       # 所有権と借用
+│  └─ ...                             # 各トピックのフォルダ
+├─ rust-libraries/                  # Rust ライブラリ関連
+│  ├─ anyhow-basic/                   # anyhow の基本
+│  ├─ thiserror-basic/                # thiserror の基本
+│  └─ ...                             # 各トピックのフォルダ
 └─ README.md
 ```
 
