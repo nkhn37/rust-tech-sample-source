@@ -1,3 +1,4 @@
+#[allow(unused_variables)]
 fn main() {
     let s1 = String::from("Hello World!");
 
