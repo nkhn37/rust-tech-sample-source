@@ -10,5 +10,5 @@ fn main() {
     takes_ownership(s1);
 
     // ここから s1 は使用できなくなる。
-    println!("{}", s1);
+    // println!("{}", s1);
 }
