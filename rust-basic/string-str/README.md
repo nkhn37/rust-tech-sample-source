@@ -1,4 +1,4 @@
-# String 型と文字列スライス &str 型の基本 (string_str)
+# String型と&strの違い (string-str)
 
 ## 概要
 
@@ -9,17 +9,67 @@
 ## 実行方法
 
 各サンプルコードは、`examples` フォルダ配下に配置してあります。  
-以下のコマンドで `main.rs` を実行すると、`examples` のプログラムを実行するためのコマンドが表示されます。本プロジェクトのルートで以下を実行してください。
+`cargo run` を実行すると、サンプルコードの実行方法が表示されます。  
+**リポジトリルートから実行する方法**と**各プロジェクトフォルダから実行する方法**のどちらにも対応しています。
+
+---
+
+### リポジトリルートから実行する場合
+
+#### 1. `main.rs` を実行する
+
+`-p string-str` を指定して `cargo run` を実行します。
+
+```bash
+cargo run -p string-str
+```
+
+出力例：
+
+```
+cargo run -p string-str --example str_function
+cargo run -p string-str --example str_part_string
+cargo run -p string-str --example str_string_literal
+cargo run -p string-str --example str_structure
+cargo run -p string-str --example string_add
+cargo run -p string-str --example string_basic_format
+cargo run -p string-str --example string_basic_from
+cargo run -p string-str --example string_basic_new
+cargo run -p string-str --example string_basic_tostring
+cargo run -p string-str --example string_concat
+cargo run -p string-str --example string_index_panic
+cargo run -p string-str --example string_remove
+cargo run -p string-str --example string_remove_caution
+cargo run -p string-str --example string_structure
+```
+
+#### 2. 表示されたコマンドを実行する
+
+表示されたコマンドをそのまま実行すると、サンプルプログラムを試すことができます。
+
+```bash
+cargo run -p string-str --example str_function
+```
+
+---
+
+### 各プロジェクトフォルダから実行する場合
+
+#### 1. プロジェクトフォルダへ移動する
+
+```bash
+cd rust-basic/string-str
+```
+
+#### 2. `main.rs` を実行する
 
 ```bash
 cargo run
 ```
 
-実行例：
+出力例：
 
 ```
-例を実行するには、以下のコマンドを実行してください。
-
 cargo run --example str_function
 cargo run --example str_part_string
 cargo run --example str_string_literal
@@ -36,9 +86,13 @@ cargo run --example string_remove_caution
 cargo run --example string_structure
 ```
 
-表示されたコマンドを実行することで各サンプルプログラムを実行することができます。
+#### 3. 表示されたコマンドを実行する
 
-> **補足**
+```bash
+cargo run --example str_function
+```
+
+> 補足
 >
-> - `main.rs` で `common` プロジェクトの関数を使用しています。そのため本プロジェクト単体ではなく、`rust-tech-sample-source` をクローンして workspace 配下で実行してください。
+> - `main.rs` で `common` クレートの関数を使用しているため、本プロジェクト単体ではなく `rust-tech-sample-source` の workspace 配下で実行してください。
 > - プログラムが変更・追加されている場合、上記と結果が異なる可能性があります。

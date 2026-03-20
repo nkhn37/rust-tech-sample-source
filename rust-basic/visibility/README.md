@@ -3,7 +3,7 @@
 ## 概要
 
 このプロジェクトは Rust Tech の記事  
-[【Rust 入門】モジュールの可視性の仕組みを分かりやすく解説]()  
+[【Rust入門】モジュールの可視性の基本を分かりやすく解説](https://rust-tech.nkhn37.net/rust-modules-visibility-basic/)  
 で紹介しているサンプルコードです。
 
 ## 実行方法
