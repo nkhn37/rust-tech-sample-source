@@ -4,9 +4,8 @@ fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
 }
 
 fn main() {
-    // この main は意図的にコンパイルエラーを起こすサンプルです。
-    // 全体チェックで失敗しないよう、デフォルトでは処理本体をコメントアウトしています。
-    // 試すときは下のコメントを外し、cargo run -p lifetime-basic --example lifetime_annotation_2 を実行してください。
+    // // ==== この main はコンパイルエラーとなるため全体をコメントアウトしています。
+    // // 試す際には全体のコメントを外して実行してみてください。
 
     // let s1 = String::from("Long String");
     // let result;
@@ -27,6 +26,6 @@ fn main() {
     //     println!("{}", result);
     // } // s2 の値の生存期間終了
 
-    // 以下は result のライフタイム外なのでエラーとなる
+    // // 以下は result のライフタイム外なのでエラーとなる
     // println!("{}", result);
 }
