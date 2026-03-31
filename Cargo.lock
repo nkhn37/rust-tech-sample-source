@@ -91,6 +91,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "iterator-adapters"
+version = "0.1.0"
+dependencies = [
+ "common",
+]
+
+[[package]]
 name = "iterator-basic"
 version = "0.1.0"
 dependencies = [
