@@ -84,6 +84,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "hashset-basic"
+version = "0.1.0"
+dependencies = [
+ "common",
+]
+
+[[package]]
 name = "if-basic"
 version = "0.1.0"
 dependencies = [
