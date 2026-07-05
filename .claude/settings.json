@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "powershell",
+            "statusMessage": "cargo fmt / clippy を実行中...",
+            "command": "$in = [Console]::In.ReadToEnd() | ConvertFrom-Json\n$p = $in.tool_input.file_path\nif (-not $p) { $p = $in.tool_response.filePath }\nif ($p -and $p.ToString().ToLower().EndsWith('.rs')) {\n    $d = Split-Path $p -Parent\n    while ($d -and -not (Test-Path (Join-Path $d 'Cargo.toml'))) { $d = Split-Path $d -Parent }\n    if ($d) {\n        $m = Join-Path $d 'Cargo.toml'\n        cargo +nightly fmt --manifest-path $m\n        cargo clippy --manifest-path $m --all-targets --quiet\n    }\n}\n"
+          }
+        ]
+      }
+    ]
+  }
+}
